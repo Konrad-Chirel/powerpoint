@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaFinder - Pitch Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        pharma: {
+                            green: '#059669',
+                            darkgreen: '#047857',
+                            lightgreen: '#d1fae5',
+                            blue: '#1e3a8a',
+                            lightblue: '#dbeafe',
+                            dark: '#0f172a'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(0,0,0,0.05)',
+                        'glow': '0 0 40px -10px rgba(5, 150, 105, 0.3)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Hide main scrollbar */
+            background-color: #f8fafc;
+        }
+
+        .presentation-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        /* Hide scrollbar for a cleaner look */
+        .presentation-container::-webkit-scrollbar {
+            display: none;
+        }
+        .presentation-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .slide {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 4rem;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        /* Background decorators */
+        .bg-shape-1 {
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(30, 58, 138, 0.05));
+            filter: blur(60px);
+            z-index: 0;
+        }
+
+        .bg-shape-2 {
+            position: absolute;
+            bottom: -10%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.08), rgba(5, 150, 105, 0.05));
+            filter: blur(50px);
+            z-index: 0;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .slide-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 3rem;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+        
+        .slide-title span {
+            color: #059669;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -15px rgba(0,0,0,0.12);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 2rem;
+            padding: 4rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Navigation Hint */
+        .nav-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #94a3b8;
+            font-size: 0.875rem;
+            animation: bounce 2s infinite;
+            z-index: 50;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, -10px); }
+        }
+
+        /* Standardize text sizes */
+        p {
+            color: #475569;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 100;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .dot.active {
+            background-color: #059669;
+            transform: scale(1.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-dots" id="nav-dots">
+        <!-- Generated by JS -->
+    </div>
+
+    <div class="presentation-container" id="container">
+
+        <!-- 1. Titre et Vision -->
+        <section class="slide bg-slate-50">
+            <div class="bg-shape-1"></div>
+            <div class="bg-shape-2"></div>
+            <div class="content-wrapper flex flex-col items-center justify-center text-center">
+                <div class="glass-card max-w-4xl w-full relative">
+                    <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-pharma-green text-white p-6 rounded-3xl shadow-glow">
+                        <i class="fa-solid fa-staff-snake text-5xl"></i>
+                    </div>
+                    <h1 class="text-6xl font-extrabold text-pharma-dark mt-8 mb-6 tracking-tight">
+                        Pharma<span class="text-pharma-green">Finder</span>
+                    </h1>
+                    <div class="w-24 h-1 bg-gradient-to-r from-pharma-blue to-pharma-green mx-auto mb-8 rounded-full"></div>
+                    <p class="text-2xl text-slate-600 font-light leading-relaxed">
+                        Simplifier et accélérer l’accès aux pharmacies et aux médicaments au Bénin grâce au numérique.
+                    </p>
+                </div>
+            </div>
+            <div class="nav-hint">
+                <span class="mb-2 font-medium tracking-widest uppercase text-xs">Défiler ou Flèche Bas</span>
+                <i class="fa-solid fa-chevron-down text-xl"></i>
+            </div>
+        </section>
+
+        <!-- 2. Le Problème -->
+        <section class="slide">
+            <div class="bg-shape-1" style="top: auto; bottom: -10%; left: -5%; right: auto;"></div>
+            <div class="content-wrapper">
+                <h2 class="slide-title">Le Constat <span>Actuel</span></h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Urgence -->
+                    <div class="card border-t-4 border-t-red-500">
+                        <div class="w-14 h-14 rounded-2xl bg-red-50 text-red-500 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-truck-medical"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">L'Urgence Médicale</h3>
+                        <p>Lorsqu'une personne a besoin d'un médicament (enfant malade, douleur aiguë), l'accès à une information fiable devient une <span class="font-bold text-red-500">urgence absolue</span>.</p>
+                    </div>
+                    
+                    <!-- Chiffres -->
+                    <div class="card border-t-4 border-t-pharma-blue relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 text-9xl text-slate-50 opacity-50 z-0">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 rounded-2xl bg-blue-50 text-pharma-blue flex items-center justify-center text-2xl mb-6">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-4">Les Chiffres Clés</h3>
+                            <div class="mb-4">
+                                <span class="text-3xl font-extrabold text-pharma-blue">83,8%</span>
+                                <p class="text-sm mt-1">des ménages achètent en pharmacie.</p>
+                            </div>
+                            <div>
+                                <span class="text-3xl font-extrabold text-orange-500">52,9%</span>
+                                <p class="text-sm mt-1">subissent des ruptures de stock régulières.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conséquence -->
+                    <div class="card border-t-4 border-t-slate-700">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-route"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4">Le Parcours Patient</h3>
+                        <p>Le patient doit appeler plusieurs pharmacies ou se déplacer d'officine en officine. Un <span class="font-bold text-slate-800">temps précieux est perdu</span> alors que le traitement ne peut pas attendre.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. La Solution -->
+        <section class="slide bg-slate-50">
+            <div class="bg-shape-2"></div>
+            <div class="content-wrapper relative z-10">
+                <div class="flex flex-col md:flex-row items-center gap-16">
+                    <div class="flex-1">
+                        <h2 class="text-5xl font-extrabold mb-6 text-pharma-dark">Notre <span>Solution</span></h2>
+                        <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+                            PharmaFinder est une plateforme numérique intuitive qui permet de trouver rapidement une pharmacie ouverte ou de garde à proximité.
+                        </p>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 bg-pharma-green text-white rounded-full p-2 text-sm shadow-md"><i class="fa-solid fa-location-crosshairs"></i></div>
+                                <div>
+                                    <h4 class="text-xl font-semibold text-slate-800">Localisation Instantanée</h4>
+                                    <p class="text-slate-500 text-sm mt-1">Information centralisée sur les pharmacies de garde autour de vous.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 bg-pharma-blue text-white rounded-full p-2 text-sm shadow-md"><i class="fa-solid fa-box-check"></i></div>
+                                <div>
+                                    <h4 class="text-xl font-semibold text-slate-800">Vérification des Stocks (À terme)</h4>
+                                    <p class="text-slate-500 text-sm mt-1">Vérifiez la disponibilité du médicament avant de vous déplacer pour éviter les trajets inutiles.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex-1 relative">
+                        <!-- Image Pharmacie -->
+                        <div class="relative z-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform -rotate-3 transition-transform hover:rotate-0 duration-500">
+                            <img src="./pharmacy_image.jpg" alt="Pharmacie moderne" class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-pharma-green mix-blend-overlay opacity-20"></div>
+                        </div>
+                        
+                        <!-- Image App Mobile superposée -->
+                        <div class="absolute -bottom-16 -right-8 z-10 w-2/3 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-[6px] border-white transform rotate-3 transition-transform hover:rotate-0 duration-500 bg-white">
+                            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/3 h-5 bg-slate-200 rounded-b-xl z-20"></div> <!-- Notch -->
+                            <img src="./app_image.webp" alt="Application Mobile sur Smartphone" class="w-full h-72 object-cover">
+                        </div>
+                        
+                        <!-- Badge -->
+                        <div class="absolute -top-6 -left-6 z-20 bg-pharma-green text-white font-bold px-6 py-3 rounded-2xl shadow-glow text-lg">
+                            <i class="fa-solid fa-mobile-screen-button mr-2"></i>Simple & Rapide
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Modèle Économique -->
+        <section class="slide">
+            <div class="bg-shape-2" style="top: -10%; right: -5%; left: auto; bottom: auto;"></div>
+            <div class="content-wrapper">
+                <h2 class="slide-title">Modèle Économique <span>B2B2C</span></h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+                    <!-- B2C -->
+                    <div class="card flex flex-col h-full border-t-0 border-l-8 border-l-pharma-green">
+                        <div class="flex justify-between items-center mb-8">
+                            <h3 class="text-3xl font-bold text-slate-800">Côté Patients</h3>
+                            <span class="bg-green-100 text-pharma-darkgreen font-bold px-4 py-2 rounded-full">100% GRATUIT</span>
+                        </div>
+                        <ul class="space-y-4 flex-1">
+                            <li class="flex items-center gap-3 text-lg"><i class="fa-solid fa-check text-pharma-green text-xl"></i> Accès aux pharmacies de garde</li>
+                            <li class="flex items-center gap-3 text-lg"><i class="fa-solid fa-check text-pharma-green text-xl"></i> Localisation et recherche par proximité</li>
+                            <li class="flex items-center gap-3 text-lg"><i class="fa-solid fa-check text-pharma-green text-xl"></i> Consultation des disponibilités (À terme)</li>
+                            <li class="flex items-center gap-3 text-lg"><i class="fa-solid fa-check text-pharma-green text-xl"></i> Commandes et réservations sans abonnement</li>
+                        </ul>
+                    </div>
+
+                    <!-- B2B -->
+                    <div class="card flex flex-col h-full border-t-0 border-l-8 border-l-pharma-blue bg-blue-50/30">
+                        <div class="flex justify-between items-center mb-8">
+                            <h3 class="text-3xl font-bold text-slate-800">Côté Pharmacies</h3>
+                            <span class="bg-blue-100 text-pharma-blue font-bold px-4 py-2 rounded-full">PREMIUM</span>
+                        </div>
+                        <ul class="space-y-4 flex-1">
+                            <li class="flex items-center gap-3 text-lg"><i class="fa-solid fa-check text-pharma-blue text-xl"></i> Abonnement au logiciel de gestion</li>
+                            <li class="flex items-center gap-3 text-lg"><i class="fa-solid fa-check text-pharma-blue text-xl"></i> Tableau de bord et statistiques détaillées</li>
+                            <li class="flex items-center gap-3 text-lg"><i class="fa-solid fa-check text-pharma-blue text-xl"></i> Visibilité accrue auprès des patients</li>
+                            <li class="flex items-center gap-3 text-lg"><i class="fa-solid fa-check text-pharma-blue text-xl"></i> Commissions sur les ventes générées (À terme)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Différenciation -->
+        <section class="slide">
+            <div class="content-wrapper">
+                <h2 class="slide-title">Concurrence & <span>Différenciation</span></h2>
+                <p class="text-center text-xl mb-12 max-w-3xl mx-auto">Contrairement aux solutions qui se limitent à répertorier, PharmaFinder est une plateforme dynamique qui <strong>rapproche le besoin de l'offre</strong>.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="card p-6 text-center hover:bg-pharma-green hover:text-white group transition-colors">
+                        <i class="fa-solid fa-location-arrow text-4xl text-pharma-green mb-4 group-hover:text-white"></i>
+                        <h4 class="font-bold text-lg mb-2">Géolocalisation</h4>
+                        <p class="text-sm group-hover:text-green-100">Pharmacies filtrées selon la position exacte du patient.</p>
+                    </div>
+                    <div class="card p-6 text-center hover:bg-pharma-blue hover:text-white group transition-colors">
+                        <i class="fa-solid fa-rotate text-4xl text-pharma-blue mb-4 group-hover:text-white"></i>
+                        <h4 class="font-bold text-lg mb-2">Données Fraîches</h4>
+                        <p class="text-sm group-hover:text-blue-100">Indicateur de fiabilité et actualisation en temps réel.</p>
+                    </div>
+                    <div class="card p-6 text-center hover:bg-pharma-green hover:text-white group transition-colors">
+                        <i class="fa-solid fa-mobile-screen-button text-4xl text-pharma-green mb-4 group-hover:text-white"></i>
+                        <h4 class="font-bold text-lg mb-2">Omnicanal</h4>
+                        <p class="text-sm group-hover:text-green-100">Accessibilité maximale via Web et bot WhatsApp.</p>
+                    </div>
+                    <div class="card p-6 text-center hover:bg-pharma-blue hover:text-white group transition-colors">
+                        <i class="fa-solid fa-chart-simple text-4xl text-pharma-blue mb-4 group-hover:text-white"></i>
+                        <h4 class="font-bold text-lg mb-2">Data & Analytics</h4>
+                        <p class="text-sm group-hover:text-blue-100">Tableaux de bord pour aider les pharmacies à comprendre la demande.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Equipe & Besoins -->
+        <section class="slide">
+            <div class="bg-shape-1" style="opacity: 0.5;"></div>
+            <div class="content-wrapper flex flex-col md:flex-row gap-12">
+                
+                <!-- Equipe -->
+                <div class="flex-1">
+                    <h2 class="text-4xl font-bold text-pharma-blue mb-8">L'Équipe</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="w-12 h-12 rounded-full bg-pharma-green/10 text-pharma-green flex items-center justify-center text-xl font-bold">BT</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Blessed TOSSOU</h4>
+                                <p class="text-sm text-slate-500 m-0 leading-none">Project Manager / Développeur Fullstack</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="w-12 h-12 rounded-full bg-pharma-blue/10 text-pharma-blue flex items-center justify-center text-xl font-bold">RT</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Ramzine TOKO</h4>
+                                <p class="text-sm text-slate-500 m-0 leading-none">Chargé du Visuel et Contenu Multimédia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="w-12 h-12 rounded-full bg-purple-500/10 text-purple-500 flex items-center justify-center text-xl font-bold">MM</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Maziath MONGO</h4>
+                                <p class="text-sm text-slate-500 m-0 leading-none">Ambassadrice du Projet</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="w-12 h-12 rounded-full bg-slate-500/10 text-slate-600 flex items-center justify-center text-xl font-bold">TA</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Thérance ADJAFFON</h4>
+                                <p class="text-sm text-slate-500 m-0 leading-none">Aspect Juridique</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Besoins -->
+                <div class="flex-1">
+                    <h2 class="text-4xl font-bold text-pharma-green mb-8">Besoins de Financement</h2>
+                    <div class="card bg-gradient-to-br from-pharma-green to-pharma-darkgreen text-white border-0 shadow-xl">
+                        <ul class="space-y-5">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-database mt-1 opacity-80"></i>
+                                <span><strong>Collecte de données :</strong> Mise à jour des officines, horaires et stocks.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-user-plus mt-1 opacity-80"></i>
+                                <span><strong>Renfort d'équipe :</strong> UX/UI, Community Manager, Data/IA.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-laptop-code mt-1 opacity-80"></i>
+                                <span><strong>Développement :</strong> Plateforme Web, bot WhatsApp, Dashboard B2B.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-server mt-1 opacity-80"></i>
+                                <span><strong>Infrastructure :</strong> Serveurs, sécurité, nom de domaine, API.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-bullhorn mt-1 opacity-80"></i>
+                                <span><strong>Acquisition :</strong> Lancement marketing ciblé patients & pharmacies.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Conclusion -->
+        <section class="slide bg-slate-50 text-center">
+            <div class="bg-shape-1"></div>
+            <div class="bg-shape-2"></div>
+            
+            <div class="content-wrapper relative z-10 flex flex-col items-center justify-center">
+                <i class="fa-solid fa-heart-pulse text-6xl text-pharma-green mb-8"></i>
+                <h2 class="text-5xl md:text-7xl font-extrabold mb-8 leading-tight text-pharma-dark">
+                    Un besoin, une pharmacie.<br>
+                    <span class="text-pharma-green">Maintenant.</span>
+                </h2>
+                <p class="text-2xl text-slate-600 max-w-4xl mx-auto mb-16 font-light">
+                    Parce que lorsqu’on cherche un médicament, on ne cherche pas seulement une pharmacie : on cherche une solution.
+                </p>
+                
+                <div class="flex flex-col md:flex-row gap-8 w-full max-w-3xl justify-center">
+                    <div class="card flex-1 border-2 border-transparent hover:border-pharma-green transition-colors cursor-pointer group">
+                        <p class="text-sm uppercase tracking-wider text-pharma-green font-bold mb-2">Trouvez la pharmacie</p>
+                        <h4 class="text-3xl font-bold text-slate-800 group-hover:text-pharma-dark">Gagnez du temps</h4>
+                    </div>
+                    <div class="card flex-1 border-2 border-transparent hover:border-pharma-blue transition-colors cursor-pointer group">
+                        <p class="text-sm uppercase tracking-wider text-pharma-blue font-bold mb-2">Besoin d'un médicament ?</p>
+                        <h4 class="text-3xl font-bold text-slate-800 group-hover:text-pharma-dark">Trouvez le</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Create navigation dots
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.getElementById('nav-dots');
+        const container = document.getElementById('container');
+
+        slides.forEach((slide, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'dot' + (index === 0 ? ' active' : '');
+            dot.addEventListener('click', () => {
+                slide.scrollIntoView({ behavior: 'smooth' });
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        // Update active dot on scroll
+        container.addEventListener('scroll', () => {
+            const scrollPosition = container.scrollTop;
+            const windowHeight = window.innerHeight;
+            
+            const activeIndex = Math.round(scrollPosition / windowHeight);
+            
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.className = 'dot' + (index === activeIndex ? ' active' : '');
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const scrollPosition = container.scrollTop;
+            const windowHeight = window.innerHeight;
+            const activeIndex = Math.round(scrollPosition / windowHeight);
+
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                if (activeIndex < slides.length - 1) {
+                    slides[activeIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                }
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                if (activeIndex > 0) {
+                    slides[activeIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
