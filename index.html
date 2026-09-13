@@ -517,10 +517,86 @@
             </div>
         </section>
 
-        <!-- 6. Différenciation -->
+        <!-- 6. Analyse Concurrentielle (Benchmark) -->
+        <section class="slide bg-slate-50">
+            <div class="bg-shape-1"></div>
+            <div class="bg-shape-2"></div>
+            <div class="content-wrapper">
+                <h2 class="slide-title">Analyse <span>Concurrentielle</span></h2>
+                <p class="text-center text-lg text-slate-600 max-w-3xl mx-auto -mt-4 mb-6">Benchmark face aux solutions de santé existantes au Bénin.</p>
+                
+                <div class="card p-0 overflow-hidden shadow-xl border border-slate-200/80 bg-white">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs md:text-sm">
+                            <thead>
+                                <tr class="bg-slate-100/90 text-slate-700 font-bold border-b border-slate-200">
+                                    <th class="py-3 px-4 w-1/6">Solution</th>
+                                    <th class="py-3 px-4 w-1/4">Ce qu'elle propose</th>
+                                    <th class="py-3 px-4 w-1/4">Limites observées</th>
+                                    <th class="py-3 px-4 w-1/3 bg-emerald-50/60 text-pharma-darkgreen border-l border-emerald-100">
+                                        <i class="fa-solid fa-star text-pharma-green mr-1"></i> Différenciation PharmaFinder
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-slate-600">
+                                <tr class="hover:bg-slate-50/80 transition-colors">
+                                    <td class="py-2.5 px-4 font-bold text-slate-800 flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center text-xs font-semibold">PM</div>
+                                        PharMap
+                                    </td>
+                                    <td class="py-2.5 px-4 text-xs">Recherche médicaments & pharmacies, promesse &lt; 10 min. (Màj oct. 2023).</td>
+                                    <td class="py-2.5 px-4 text-xs text-amber-700 bg-amber-50/30">Service actuellement non opérationnel / indisponible lors des tests.</td>
+                                    <td class="py-2.5 px-4 text-xs bg-emerald-50/30 border-l border-emerald-100 font-medium text-slate-700">Accès immédiat en 1 clic (recherche → itinéraire) + liaison avec logiciels officines.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 transition-colors">
+                                    <td class="py-2.5 px-4 font-bold text-slate-800 flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center text-xs font-semibold">AB</div>
+                                        AiBani
+                                    </td>
+                                    <td class="py-2.5 px-4 text-xs">Plateforme e-santé généraliste tout-en-un (médecins, labos, urgences, pharmacies).</td>
+                                    <td class="py-2.5 px-4 text-xs text-amber-700 bg-amber-50/30">Positionnement très large, parcours non spécialisé pour l'urgence pharmacie.</td>
+                                    <td class="py-2.5 px-4 text-xs bg-emerald-50/30 border-l border-emerald-100 font-medium text-slate-700">Hyper-spécialisation pharmacie : « Je cherche → Je trouve → Je vais à l'officine ».</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 transition-colors">
+                                    <td class="py-2.5 px-4 font-bold text-slate-800 flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center text-xs font-semibold">GM</div>
+                                        goMediCAL
+                                    </td>
+                                    <td class="py-2.5 px-4 text-xs">Rendez-vous médicaux, consultations, parcours clinique global et paiement.</td>
+                                    <td class="py-2.5 px-4 text-xs text-amber-700 bg-amber-50/30">Orienté consultations médicales, la pharmacie n'est pas le cœur du produit.</td>
+                                    <td class="py-2.5 px-4 text-xs bg-emerald-50/30 border-l border-emerald-100 font-medium text-slate-700">Focus sur le dernier kilomètre patient-pharmacie + outils B2B de gestion officine.</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/80 transition-colors">
+                                    <td class="py-2.5 px-4 font-bold text-slate-800 flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center text-xs font-semibold">VH</div>
+                                        VIHINTOH
+                                    </td>
+                                    <td class="py-2.5 px-4 text-xs">Orientation santé publique & annuaire des pharmacies de garde par ville/date.</td>
+                                    <td class="py-2.5 px-4 text-xs text-amber-700 bg-amber-50/30">Annuaire d'orientation large, sans stocks actualisés ni intégration pharmacie.</td>
+                                    <td class="py-2.5 px-4 text-xs bg-emerald-50/30 border-l border-emerald-100 font-medium text-slate-700">Proximité automatique, distinction ouvert/garde, contact direct & connexion stocks.</td>
+                                </tr>
+                                <tr class="bg-gradient-to-r from-emerald-500/10 via-emerald-50 to-teal-50 font-semibold text-slate-800 border-t-2 border-pharma-green">
+                                    <td class="py-3 px-4 font-extrabold text-pharma-green flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-lg bg-pharma-green text-white flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-plus text-[10px]"></i></div>
+                                        PharmaFinder
+                                    </td>
+                                    <td class="py-3 px-4 text-xs text-slate-800">Gardes & ouvertes en temps réel, géolocalisation, statut, itinéraire 1-clic.</td>
+                                    <td class="py-3 px-4 text-xs text-pharma-green font-bold"><i class="fa-solid fa-check-circle mr-1"></i> Écosystème dédié et opérationnel</td>
+                                    <td class="py-3 px-4 text-xs bg-emerald-100/60 border-l border-emerald-200 text-pharma-darkgreen font-bold">
+                                        Répond au besoin d'urgence immédiat puis étend l'expérience vers les stocks & la gestion officine.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Différenciation -->
         <section class="slide">
             <div class="content-wrapper">
-                <h2 class="slide-title">Concurrence & <span>Différenciation</span></h2>
+                <h2 class="slide-title">Piliers de <span>Différenciation</span></h2>
                 <p class="text-center text-xl mb-12 max-w-3xl mx-auto">Contrairement aux solutions qui se limitent à répertorier, PharmaFinder est une plateforme dynamique qui <strong>rapproche le besoin de l'offre</strong>.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -548,7 +624,7 @@
             </div>
         </section>
 
-        <!-- 7. Stratégie de Communication -->
+        <!-- 8. Stratégie de Communication -->
         <section class="slide bg-slate-50">
             <div class="bg-shape-1"></div>
             <div class="bg-shape-2"></div>
@@ -639,7 +715,7 @@
             </div>
         </section>
 
-        <!-- 8. Equipe & Besoins -->
+        <!-- 9. Equipe & Besoins -->
         <section class="slide">
             <div class="bg-shape-1" style="opacity: 0.5;"></div>
             <div class="content-wrapper flex flex-col md:flex-row gap-12">
@@ -710,7 +786,7 @@
             </div>
         </section>
 
-        <!-- 9. Conclusion -->
+        <!-- 10. Conclusion -->
         <section class="slide bg-slate-50 text-center">
             <div class="bg-shape-1"></div>
             <div class="bg-shape-2"></div>
