@@ -1012,7 +1012,7 @@
                     <!-- Left: Team -->
                     <div class="flex-1 w-full">
                         <div class="flex flex-wrap items-baseline justify-between gap-2 mb-3">
-                            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy-900">L'Équipe Fondatrice</h2>
+                            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy-900">L'Équipe PharmaFinder</h2>
                             <span class="text-[11px] sm:text-xs text-brand-700 font-semibold flex items-center gap-1">
                                 <i class="fa-solid fa-arrow-pointer"></i> Cliquez pour détails
                             </span>
@@ -1026,8 +1026,13 @@
                                         <img src="./team_blessed.jpeg" alt="Blessed TOSSOU" class="w-full h-full object-cover">
                                     </div>
                                     <div class="min-w-0">
-                                        <h4 class="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-brand-600 transition-colors leading-tight">Blessed TOSSOU</h4>
-                                        <p class="text-[11px] text-slate-500 m-0 leading-tight">Project Manager / Développeur Fullstack</p>
+                                        <div class="flex flex-wrap items-center gap-1.5">
+                                            <h4 class="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-brand-600 transition-colors leading-tight">Blessed TOSSOU</h4>
+                                            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-emerald-50 text-brand-800 border border-emerald-200/80 leading-none">
+                                                <span class="w-1 h-1 rounded-full bg-brand-500"></span>Membre Fondateur
+                                            </span>
+                                        </div>
+                                        <p class="text-[11px] text-slate-500 m-0 leading-tight mt-0.5">Project Manager / Développeur Fullstack</p>
                                     </div>
                                 </div>
                                 <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-brand-600 group-hover:translate-x-0.5 transition-all text-xs shrink-0 ml-2"></i>
@@ -1054,8 +1059,13 @@
                                         <img src="./team_fortune.jpeg" alt="AGUESSI Fortuné" class="w-full h-full object-cover">
                                     </div>
                                     <div class="min-w-0">
-                                        <h4 class="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-brand-600 transition-colors leading-tight">AGUESSI Fortuné</h4>
-                                        <p class="text-[11px] text-slate-500 m-0 leading-tight">Développeur Web Full-Stack (Conception & Maintenance)</p>
+                                        <div class="flex flex-wrap items-center gap-1.5">
+                                            <h4 class="font-bold text-slate-900 text-xs sm:text-sm group-hover:text-brand-600 transition-colors leading-tight">AGUESSI Fortuné</h4>
+                                            <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-emerald-50 text-brand-800 border border-emerald-200/80 leading-none">
+                                                <span class="w-1 h-1 rounded-full bg-brand-500"></span>Membre Fondateur
+                                            </span>
+                                        </div>
+                                        <p class="text-[11px] text-slate-500 m-0 leading-tight mt-0.5">Développeur Web Full-Stack (Conception & Maintenance)</p>
                                     </div>
                                 </div>
                                 <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-brand-600 group-hover:translate-x-0.5 transition-all text-xs shrink-0 ml-2"></i>
@@ -1236,8 +1246,8 @@
                     </div>
                 </div>
                 
-                <!-- Founder Tag -->
-                <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50/80 text-brand-800 text-[11px] font-bold border border-emerald-200/70 mb-1.5 sm:mb-2">
+                <!-- Founder Tag (affiché uniquement pour Blessed TOSSOU et AGUESSI Fortuné) -->
+                <div id="modal-founder-tag" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50/80 text-brand-800 text-[11px] font-bold border border-emerald-200/70 mb-1.5 sm:mb-2">
                     <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
                     Membre Fondateur
                 </div>
@@ -1344,6 +1354,7 @@
                 name: "Blessed TOSSOU",
                 role: "Project Manager / Développeur Fullstack",
                 dept: "Direction & Architecture",
+                isFounder: true,
                 photo: "./team_blessed.jpeg",
                 initials: "BT",
                 tags: ["Product Management", "Architecture Full-Stack", "Pilotage Produit"],
@@ -1353,6 +1364,7 @@
                 name: "Konrad MEDEGBE",
                 role: "Développeur Web Fullstack",
                 dept: "Ingénierie & Produit",
+                isFounder: false,
                 photo: "./team_konrad.jpg",
                 initials: "KM",
                 tags: ["Architecture Logicielle", "Développement Web", "Performance & Maintenance"],
@@ -1362,6 +1374,7 @@
                 name: "AGUESSI Fortuné",
                 role: "Développeur Web Full-Stack",
                 dept: "Ingénierie & Produit",
+                isFounder: true,
                 photo: "./team_fortune.jpeg",
                 initials: "AF",
                 tags: ["Développement Full-Stack", "Intégration API", "Sécurité & Fiabilité"],
@@ -1371,6 +1384,7 @@
                 name: "Ramzine TOKO",
                 role: "Chargé du Visuel et Contenu Multimédia",
                 dept: "Identité Visuelle & UX",
+                isFounder: false,
                 photo: "./team_ramzine.jpeg",
                 initials: "RT",
                 tags: ["Direction Artistique", "Design Graphique", "Contenus Multimédias"],
@@ -1380,6 +1394,7 @@
                 name: "Abdoulaye ARAZIM",
                 role: "Community Manager / Chargé de visibilité",
                 dept: "Croissance & Communauté",
+                isFounder: false,
                 photo: "./team_abdoulaye.jpeg",
                 initials: "AA",
                 tags: ["Growth TikTok & Meta", "Animation Communautaire", "Acquisition Patients"],
@@ -1389,6 +1404,7 @@
                 name: "Maziath MONGO",
                 role: "Ambassadrice du Projet",
                 dept: "Relations Publiques & Terrain",
+                isFounder: false,
                 photo: "./team_maziath.jpeg",
                 initials: "MM",
                 tags: ["Relations Publiques", "Sensibilisation Terrain", "Plaidoyer Santé"],
@@ -1398,6 +1414,7 @@
                 name: "Thérance ADJAFFON",
                 role: "Aspect Juridique",
                 dept: "Juridique & Réglementation",
+                isFounder: false,
                 photo: "./team_therance.jpeg",
                 initials: "TA",
                 tags: ["Droit Pharmaceutique", "Conformité Santé", "Sécurisation Partenariats"],
@@ -1414,6 +1431,7 @@
         const modalDesc = document.getElementById('modal-desc');
         const modalDept = document.getElementById('modal-dept');
         const modalTags = document.getElementById('modal-tags');
+        const modalFounderTag = document.getElementById('modal-founder-tag');
         const closeTeamModalBtn = document.getElementById('close-team-modal');
 
         function openTeamModal(memberKey) {
@@ -1424,6 +1442,17 @@
             modalRole.textContent = member.role;
             modalDesc.textContent = member.desc;
             if (modalDept) modalDept.textContent = member.dept || "Équipe Exécutive";
+            
+            // Show "Membre Fondateur" badge only for Blessed TOSSOU and AGUESSI Fortuné
+            if (modalFounderTag) {
+                if (member.isFounder) {
+                    modalFounderTag.classList.remove('hidden');
+                    modalFounderTag.classList.add('inline-flex');
+                } else {
+                    modalFounderTag.classList.add('hidden');
+                    modalFounderTag.classList.remove('inline-flex');
+                }
+            }
             
             // Generate tags
             if (modalTags) {
