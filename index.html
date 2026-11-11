@@ -80,7 +80,8 @@
                 scroll-snap-type: y mandatory;
             }
         }
-        .presentation-container::-webkit-scrollbar {
+        .presentation-container::-webkit-scrollbar,
+        #team-modal-content::-webkit-scrollbar {
             display: none;
         }
 
@@ -1215,7 +1216,7 @@
          MODAL DÉTAILS MEMBRE D'ÉQUIPE (PROFIL EXÉCUTIF BESPOKE)
          ========================================== -->
     <div id="team-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none">
-        <div class="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full max-h-[90dvh] overflow-y-auto p-5 sm:p-6 md:p-8 shadow-2xl relative transform transition-all duration-300 scale-95 border border-slate-200/90" id="team-modal-content">
+        <div class="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full max-h-[92dvh] overflow-y-auto p-5 sm:p-6 shadow-2xl relative transform transition-all duration-300 scale-95 border border-slate-200/90" id="team-modal-content" style="scrollbar-width: none; -ms-overflow-style: none;">
             
             <!-- Top Controls: Department Tag + Close Button -->
             <div class="flex items-center justify-between gap-2 pb-3 sm:pb-3.5 border-b border-slate-100">
@@ -1262,7 +1263,7 @@
                 <!-- Footer Signature -->
                 <div class="w-full mt-3.5 sm:mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400 font-medium">
                     <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-brand-600"></i> Équipe Officielle PharmaFinder</span>
-                    <span>Cotonou, Bénin</span>
+                    <span>Parakou, Bénin</span>
                 </div>
             </div>
         </div>
